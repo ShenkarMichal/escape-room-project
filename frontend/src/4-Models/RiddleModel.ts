@@ -4,3 +4,5 @@ class RiddleModel {
     public question: string
     public answer: string
 }
+
+export default RiddleModel

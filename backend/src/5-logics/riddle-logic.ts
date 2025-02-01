@@ -17,7 +17,7 @@ function addRiddle(riddle: IRiddleModel): Promise<IRiddleModel> {
     return riddle.save()
 }
 
-async function checkAnswer(riddleId: string, userId: string, answer: string): Promise<mongoose.Schema.Types.ObjectId[]> {
+async function checkAnswer(riddleId: string, userId: string, answer: string): Promise<IMazeNodeModel[] > {
 
     const user =  await UserModel.findById(userId).populate("currentNode").exec()
     if(!user || !user.currentNode) throw new ValidationErrorModel("User or Node does not exists")
@@ -35,8 +35,9 @@ async function checkAnswer(riddleId: string, userId: string, answer: string): Pr
         solvedAt: isCorrect? new Date() : null,    
     },{upsert: true, new: true})
 
-    //החזרת הנקודות הבאות אליהן יכול המשתמש לגשת    
-    return isCorrect ? user.currentNode.nextNodes : []
+    //החזרת הנקודות הבאות אליהן יכול המשתמש לגשת   
+    const nextNodes = await MazeNodeModel.find({ _id: { $in: user.currentNode.nextNodes } }).exec()
+    return isCorrect ? nextNodes : []
 }
 
 async function chooseNextNode(nextNodeId: string, userId: string): Promise<IRiddleModel> {

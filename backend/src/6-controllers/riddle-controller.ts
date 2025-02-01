@@ -28,7 +28,7 @@ router.post("/maze/answer/:riddleId/:userId", async (request: Request, response:
         if(!mongoose.isValidObjectId(riddleId)) throw new ValidationErrorModel("riddleId is not correct")
         if(!mongoose.isValidObjectId(userId)) throw new ValidationErrorModel("userId is not correct")
         const check = await riddleLogic.checkAnswer(riddleId,userId, answer)
-        response.json({nextNodes: check, message: check ? "Correct answer" : "Uncorrect answer"})
+        response.json(check)
     }
     catch (err: any) {
         next(err)        
