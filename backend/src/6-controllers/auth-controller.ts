@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 import { UserModel } from '../4-models/user-model';
 import authLogic from '../5-logics/auth-logic';
-import CredentialModel from '../4-models/credential-model';
+import CredentialsModel from '../4-models/credentials-model';
 
 const router = express.Router()
 
@@ -20,7 +20,7 @@ router.post("/register", async (request: Request, response: Response, next: Next
 // Login  
 router.post("/login", async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const credential = new CredentialModel(request.body)
+        const credential = new CredentialsModel(request.body)
         const token = await authLogic.login(credential)
         response.json(token)
     }

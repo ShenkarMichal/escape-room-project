@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
 import RoleModel from "./role-model";
+import { IMazeNodeModel, MazeNodeModel } from "./maze-node-model";
 
 //1 - interface
 export interface IUserModel extends mongoose.Document{
     name: string
     username: string
     password: string
+    currentNode: IMazeNodeModel
     role: RoleModel
 }
 
@@ -32,10 +34,26 @@ export const UserSchema = new mongoose.Schema<IUserModel>({
         minlength: [8, "Password is too short"],
         maxlength: [8, "Password is too long"]
     },
+    currentNode:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "MazeNodeModel",
+        default: null
+    },
     role: {
         type: String,
         required: [true, 'Role is missing']
     }
+},{
+    versionKey: false,
+    toJSON: {virtuals: true},
+    id: false
+})
+
+UserSchema.virtual("maze-node", {
+    ref: MazeNodeModel,
+    localField: "currentNode",
+    foreignField: "_id",
+    justOne: true
 })
 
 //3 - Model

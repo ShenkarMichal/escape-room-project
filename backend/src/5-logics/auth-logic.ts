@@ -1,12 +1,12 @@
 import cyber from "../2-utils/cyber";
-import CredentialModel from "../4-models/credential-model";
-import { UnauthorizedErrorModel, ValidationErrorModel } from "../4-models/error-models";
+import CredentialsModel from "../4-models/credentials-model";
+import { UnauthorizedErrorModel, ValidationErrorModel } from "../4-models/error-model";
 import RoleModel from "../4-models/role-model";
 import { IUserModel, UserModel } from "../4-models/user-model";
 
 function register(user:IUserModel): string {
 
-    user.role = RoleModel.child
+    user.role = RoleModel.user
 
     //validate:
     const err = user.validateSync()
@@ -22,7 +22,7 @@ function register(user:IUserModel): string {
     return token    
 }
 
-async function login(credential: CredentialModel): Promise<string> {
+async function login(credential: CredentialsModel): Promise<string> {
     //validate
     const err = credential.validate()
     if(err) throw new ValidationErrorModel(err)

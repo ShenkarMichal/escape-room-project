@@ -1,0 +1,54 @@
+Wed, 29 Jan 2025 20:41:29 GMT
+userId is not correct
+----------------------------------------------------------------------------------------------------
+Wed, 29 Jan 2025 20:41:52 GMT
+UserModel validation failed: password: Password is missing, username: Username is missing, name: Name is missing
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 19:56:41 GMT
+Route /api/answer/679a9241c617618370d253a3/679a92cec617618370d253a7 not exist
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:35:37 GMT
+User or Node does not exists
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:44:51 GMT
+MazeNodeModel validation failed: nextNodes.0: Cast to [ObjectId] failed for value "[ '', '' ]" (type string) at path "nextNodes.0" because of "CastError"
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:46:34 GMT
+Cannot populate path `next-nodes` because it is not in your schema. Set the `strictPopulate` option to false to override.
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:48:07 GMT
+Cannot populate path `next-nodes` because it is not in your schema. Set the `strictPopulate` option to false to override.
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:49:07 GMT
+Cannot populate path `next-nodes` because it is not in your schema. Set the `strictPopulate` option to false to override.
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:51:53 GMT
+Cannot populate path `next-nodes` because it is not in your schema. Set the `strictPopulate` option to false to override.
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:52:44 GMT
+Cannot populate path `riddles` because it is not in your schema. Set the `strictPopulate` option to false to override.
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:53:02 GMT
+Cannot populate path `next-nodes` because it is not in your schema. Set the `strictPopulate` option to false to override.
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 20:53:22 GMT
+Cannot populate path `maze-nodes` because it is not in your schema. Set the `strictPopulate` option to false to override.
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 21:18:49 GMT
+Cannot read properties of null (reading 'schema')
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 21:46:25 GMT
+Cannot read properties of undefined (reading 'riddleId')
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 22:10:23 GMT
+This riddle does not exists in the user node
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 22:11:42 GMT
+This riddle does not exists in the user node
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 22:11:48 GMT
+This riddle does not exists in the user node
+----------------------------------------------------------------------------------------------------
+Thu, 30 Jan 2025 22:12:43 GMT
+This riddle does not exists in the user node
+----------------------------------------------------------------------------------------------------

@@ -18,7 +18,7 @@ server.use(sanitize)
 server.use(express.json());
 
 server.use("/api/auth", authController);
-server.use("/api/", riddleController);
+server.use("/api", riddleController);
 server.use("*", routeNotFound);
 server.use(catchAll);
 

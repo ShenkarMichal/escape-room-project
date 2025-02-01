@@ -4,7 +4,7 @@ import crypto from "crypto"
 import { IUserModel } from "../4-models/user-model";
 import RoleModel from "../4-models/role-model";
 
-const secretKey = "to-do-list"
+const secretKey = "escape-room"
 
 function getNewToken(user:IUserModel): string {
 
@@ -12,8 +12,7 @@ function getNewToken(user:IUserModel): string {
     delete userObject.password
 
     const container = {userObject}
-    const options = {expiresIn: "3h"}
-    const token = jwt.sign(container, secretKey, options)
+    const token = jwt.sign(container, secretKey, {expiresIn: '3h'})
     return token    
 }
 
@@ -59,7 +58,7 @@ async function verifyAdmin(request: Request): Promise<boolean>{
     return user.role === RoleModel.admin
 }
 
-const salt = "You did it!"
+const salt = "Lets solved it"
 function hash(plainText: string): string {
 
     const hashText = crypto.createHmac("sha512", salt).update(plainText).digest("hex")
@@ -70,6 +69,6 @@ function hash(plainText: string): string {
 export default {
     getNewToken,
     verifyToken,
-    verifyParent,
+    verifyAdmin,
     hash
 }
